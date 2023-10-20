@@ -15,13 +15,13 @@ function[] = risi_kroznico_in_tocke_test(r,stTock)
     risi_kroznico_in_tocke(stTock, r);
 
     % Izris grafa
-    calc_pi(r)
+    calc_pi(r,stTock)
 end
 
 
-function calc_pi(r)
+function calc_pi(r,stTock)
     % Naraščajoče število naključnih točk
-    stTock2 = 100:100:10000;
+    stTock2 = 100:10:stTock;
 
     % Pravilna vrednost π iz vgrajene konstante
     pravilnoPi = pi;
@@ -46,14 +46,16 @@ function calc_pi(r)
     end
     %disp(rez)   
     for i = 1:length(stTock2)
-        devijacija(end+1) =sqrt(sum((rez(i,:)-pi()).^2)/20) + pi();
+        devijacija(end+1) =sqrt(sum((rez(i,:)-pi()).^2)/stTock) + pi();
+        
     end
-    %aproks = polyfit(stTock2,devijacija);
+   
+    aproks = polyfit(stTock2,devijacija,2);
     %aproks1 = polyval(aproks,stTock2);
-    %disp(aproks1(1))
+    %disp(aproks);
    
     subplot(1, 2, 2)
-    plot(stTock2, devijacija,"g-",'LineWidth', 2)
+    plot(stTock2, devijacija,"g-",'LineWidth', 1.5)
     hold on
 
     % Izpis rezultatov
@@ -62,7 +64,7 @@ function calc_pi(r)
 
     % Graf
     subplot(1, 2, 2)
-    plot(stTock2, rezultati(:, 2), 'bo');
+    plot(stTock2, rezultati(:, 2), 'b.');
     hold on;
     plot(stTock2, pravilnoPi * ones(size(stTock2)), 'r--');
     title('Ocena π z metodo Monte Carlo');
@@ -71,7 +73,6 @@ function calc_pi(r)
     legend('Deviacija','Ocenjeno π', 'Pravilno π');
     hold on 
 end
-
 function [ocenjenoPi, napaka] = area_pi(stTock, r)
     % Inicializacija števca za točke znotraj kroga
     znotrajKroga = 0;
@@ -103,9 +104,9 @@ function risi_kroznico_in_tocke(stTock, r)
 
     % Nariši točke
     subplot(1, 2, 1)
-    scatter(x(tockeZnotraj), y(tockeZnotraj), 50, 'b', 'filled'); % Notranje točke v modri barvi
+    scatter(x(tockeZnotraj), y(tockeZnotraj), 20, 'b', '.'); % Notranje točke v modri barvi
     hold on;
-    scatter(x(tockeZunaj), y(tockeZunaj), 50, 'r', 'x'); % Zunanje točke v rdeči barvi
+    scatter(x(tockeZunaj), y(tockeZunaj),20, 'r', '.'); % Zunanje točke v rdeči barvi
     hold on
 
     % Nariši lok krožnice

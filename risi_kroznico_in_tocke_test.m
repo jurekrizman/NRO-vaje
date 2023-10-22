@@ -1,9 +1,5 @@
-function[] = risi_kroznico_in_tocke_test(r,stTock)
-    %stTock = 10000;
-
-    % Polmer krožnice
-    %r = 1;
-
+function[] = glavna_funkcija_brez(r,stTock)
+  
     % Kliči funkcijo za oceno π s trenutnim številom točk
     [ocenjenoPi, napaka] = area_pi(stTock, r);
 
@@ -12,16 +8,16 @@ function[] = risi_kroznico_in_tocke_test(r,stTock)
     disp(['Napaka: ', num2str(napaka)]);
 
     % Nariši točke in lok krožnice
-    risi_kroznico_in_tocke(stTock, r);
+    Vizualizacijska_funkcija(stTock, r);
 
     % Izris grafa
-    calc_pi(r,stTock)
+    mcc_pi(r,stTock)
 end
 
 
-function calc_pi(r,stTock)
+function mcc_pi(r,stTock)
     % Naraščajoče število naključnih točk
-    stTock2 = 100:10:stTock;
+    stTock2 = 50:5:stTock;
 
     % Pravilna vrednost π iz vgrajene konstante
     pravilnoPi = pi;
@@ -51,9 +47,7 @@ function calc_pi(r,stTock)
     end
    
     aproks = polyfit(stTock2,devijacija,2);
-    %aproks1 = polyval(aproks,stTock2);
-    %disp(aproks);
-   
+
     subplot(1, 2, 2)
     plot(stTock2, devijacija,"g-",'LineWidth', 1.5)
     hold on
@@ -67,10 +61,6 @@ function calc_pi(r,stTock)
     plot(stTock2, rezultati(:, 2), 'b.');
     hold on;
     plot(stTock2, pravilnoPi * ones(size(stTock2)), 'r--');
-    title('Ocena π z metodo Monte Carlo');
-    xlabel('Število točk');
-    ylabel('Ocenjena vrednost π');
-    legend('Deviacija','Ocenjeno π', 'Pravilno π');
     hold on 
 end
 function [ocenjenoPi, napaka] = area_pi(stTock, r)
@@ -90,9 +80,14 @@ function [ocenjenoPi, napaka] = area_pi(stTock, r)
     % Izračun ocenjenega π in napake
     ocenjenoPi = 4 * znotrajKroga / stTock;
     napaka = abs(ocenjenoPi - pi);
+
+    %DEFINICIJA FUNKCIJE
+    %area_pi funkcija, nam s pomočjo metode Monte Carlo izračuna približno
+    %vrednost vrednosti pija.
+
 end
 
-function risi_kroznico_in_tocke(stTock, r)
+function Vizualizacijska_funkcija(stTock, r)
     % Generiraj naključne točke
     x = (2 * rand(stTock, 1) - 1)*r;
     y = (2 * rand(stTock, 1) - 1)*r;
@@ -122,13 +117,11 @@ function risi_kroznico_in_tocke(stTock, r)
     x = r * cos(theta);
     y = r * sin(theta);
 
-    % Nariši krožnico
+    % Nariši krožnico, spremeni v anonimno 
     subplot(1, 2, 1)
     plot(x, y, 'g', 'LineWidth', 2);
     axis equal;
-    title(['Krožnica s polmerom r = ', num2str(r)]);
-    xlabel('X-os');
-    ylabel('Y-os');
+    
     hold on
 
     % Izris kvadrata
@@ -147,15 +140,6 @@ function risi_kroznico_in_tocke(stTock, r)
     hold on
 
     % Nastavitve grafa
-    axis equal;
-    title('Naključno generirane točke na krožnici z lokom');
-    xlabel('X-os');
-    ylabel('Y-os');
-    legend('Znotraj krožnice', 'Zunaj krožnice', 'Lok krožnice');
-
+   axis equal;
    
 end
-
-
-
-

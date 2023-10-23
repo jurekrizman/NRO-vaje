@@ -1,0 +1,17 @@
+%Funkcijo kopiramo v controlno okno in jo izvedemo.
+
+
+
+% Koti za izris krožnice
+    theta = linspace(0, 2 * pi, 1000);
+
+    % Koordinate točk na krožnici
+    x = cos(theta);
+    y = sin(theta);
+
+    % Nariši krožnico, spremeni v anonimno 
+    
+    plot(x, y, 'g', 'LineWidth', 2);
+    axis equal;
+    
+    hold on

@@ -119,7 +119,7 @@ function Vizualizacijska_funkcija(stTock, r)
     subplot(1, 2, 1)
     scatter(x(tockeZnotraj), y(tockeZnotraj), 20, 'b', '.'); % Notranje točke v modri barvi
     hold on;
-    scatter(x(tockeZunaj), y(tockeZunaj),20, 'r', '.'); % Zunanje točke v rdeči barvi
+    scatter(x(tockeZunaj), y(tockeZunaj),20, 'r', 'x'); % Zunanje točke v rdeči barvi
     hold on
 
     % Nariši lok krožnice

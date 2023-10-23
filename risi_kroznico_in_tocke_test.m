@@ -17,7 +17,7 @@ end
 
 function mcc_pi(r,stTock)
     % Naraščajoče število naključnih točk
-    stTock2 = 50:5:stTock;
+    stTock2 = 100:20:10000;
 
     % Pravilna vrednost π iz vgrajene konstante
     pravilnoPi = pi;
@@ -42,14 +42,32 @@ function mcc_pi(r,stTock)
     end
     %disp(rez)   
     for i = 1:length(stTock2)
-        devijacija(end+1) =sqrt(sum((rez(i,:)-pi()).^2)/stTock) + pi();
+        devijacija(end+1) =sqrt(sum((rez(i,:)-pi()).^2)/20) + pi();
         
     end
+x = stTock2;
+y = devijacija;
    
-    aproks = polyfit(stTock2,devijacija,2);
+    % Definicija logaritemske funkcije
+logarithmic_function = @(params, x) params(1) * log(x) + params(2);
+
+% Začetne vrednosti parametrov
+initial_guess = [1, 1];
+
+% Izvedba aproksimacije
+fit_params = lsqcurvefit(logarithmic_function, initial_guess, x, y);
+
+% Pridobivanje parametrov aproksimirane logaritemske funkcije
+a = fit_params(1);
+b = fit_params(2);
+
+% Generiranje aproksimirane krivulje
+fitted_curve = a * log(x) + b;
 
     subplot(1, 2, 2)
-    plot(stTock2, devijacija,"g-",'LineWidth', 1.5)
+    plot(stTock2,fitted_curve,"g-",'LineWidth', 1.5)
+    hold on
+    %plot(stTock2,aproks1(stTock2),"g-",'LineWidth', 1.5)
     hold on
 
     % Izpis rezultatov

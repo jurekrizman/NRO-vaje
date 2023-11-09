@@ -1,0 +1,108 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      3738,        100]
+NotebookOptionsPosition[      3294,         85]
+NotebookOutlinePosition[      3693,        101]
+CellTagsIndexPosition[      3650,         98]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"mccpi", "[", "n_", "]"}], ":=", 
+   RowBox[{"Module", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "count", ",", "x", ",", "y", ",", "tockenotr", ",", "tockezuni"}], 
+      "}"}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"count", "=", "0"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"tockenotr", "=", 
+       RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"tockezuni", "=", 
+       RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+      "\[IndentingNewLine]", 
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{"i", "=", "1"}], ",", 
+        RowBox[{"i", "<=", "n"}], ",", 
+        RowBox[{"i", "++"}], ",", 
+        RowBox[{
+         RowBox[{"x", "=", 
+          RowBox[{"RandomReal", "[", "1", "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"y", "=", 
+          RowBox[{"RandomReal", "[", "1", "]"}]}], ";", "\[IndentingNewLine]",
+          "\[IndentingNewLine]", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{
+             RowBox[{"x", "^", "2"}], "+", 
+             RowBox[{"y", "^", "2"}]}], "<=", "1"}], ",", 
+           RowBox[{
+            RowBox[{"AppendTo", "[", 
+             RowBox[{"tockenotr", ",", 
+              RowBox[{"{", 
+               RowBox[{"x", ",", "y"}], "}"}]}], "]"}], ";"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"AppendTo", "[", 
+             RowBox[{"tockezuni", ",", 
+              RowBox[{"{", 
+               RowBox[{"x", ",", "y"}], "}"}]}], "]"}], ";"}]}], "]"}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"count", "++"}], ";"}]}], "]"}], ";", "\[IndentingNewLine]", 
+      "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{"tockenotr", ",", "tockezuni"}], "}"}]}]}], "]"}]}], 
+  "\n"}]], "Input",
+ CellChangeTimes->{{3.9085137350238686`*^9, 3.9085137372806807`*^9}, {
+  3.9085137774943595`*^9, 3.908513777886675*^9}, {3.9085138542258797`*^9, 
+  3.9085139017526107`*^9}, {3.908513991533362*^9, 3.9085140698115644`*^9}, {
+  3.908514103493404*^9, 3.9085142733751345`*^9}, {3.9085143274636316`*^9, 
+  3.9085143972157393`*^9}, {3.908514917505051*^9, 3.908514930156624*^9}, {
+  3.908515611826058*^9, 3.908515615826847*^9}, {3.9085159302530546`*^9, 
+  3.9085159318306255`*^9}, {3.9085244782852316`*^9, 3.9085244819663715`*^9}, {
+  3.908528734158354*^9, 3.908528772850109*^9}},
+ CellLabel->"In[10]:=",ExpressionUUID->"7ef104ae-f95c-4c4a-969c-52a7ec1cd5b7"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.90852893324072*^9, 3.9085289527309246`*^9}},
+ CellLabel->"In[12]:=",ExpressionUUID->"54ea140f-b118-465f-8a91-84ef0bcf2725"]
+},
+WindowSize->{574.8, 568.8},
+WindowMargins->{{Automatic, 0}, {Automatic, 0}},
+FrontEndVersion->"13.3 for Microsoft Windows (64-bit) (June 3, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"b6c852b9-81ea-4e32-a0eb-5ca695e6213f"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 2557, 59, 314, "Input",ExpressionUUID->"7ef104ae-f95c-4c4a-969c-52a7ec1cd5b7"],
+Cell[3118, 81, 172, 2, 58, "Input",ExpressionUUID->"54ea140f-b118-465f-8a91-84ef0bcf2725"]
+}
+]
+*)
+
